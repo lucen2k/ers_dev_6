@@ -14,7 +14,7 @@ $released = "September 12, 2014";
 	</head>
 	<body>
 		<div id="header">
-			<h2>ERS_Dev Class Doccument</h2>
+			<h2><a href="/">ERS_Dev Class Doccument</a></h2>
 			<ul>
 				<li>Version: <?php echo $version;?></li>
 				<li>Released: <?php echo $released;?></li>

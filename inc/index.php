@@ -18,7 +18,7 @@ $released = "December 9, 2010";
 				<a href="http://code.google.com/p/php-pdo-wrapper-class/">Homepage - Google Code Project Hosting</a>
 				<a href="http://php-pdo-wrapper-class.googlecode.com/files/ppwc-<?php echo($version);?>.zip">Download Version <?php echo $version;?></a>
 			</div>
-			<h2>PHP PDO Wrapper Class</h2>
+			<h2><a href="/">PHP PDO Wrapper Class</a></h2>
 			<ul>
 				<li>Version: <?php echo $version;?></li>
 				<li>Released: <?php echo $released;?></li>
