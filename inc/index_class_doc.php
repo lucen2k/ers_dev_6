@@ -70,6 +70,8 @@ $set->pager = $pager->show();
 			?>
 
 			<h2><a name="csv-class">CSV Class</a></h2>
+			<p>[<a href="/csv/" target="_blank">Sample page</a>]</p>
+			<br>
 			<p>Controller</p>
 			<?php
 echo '<pre>', highlight_string('<?php
