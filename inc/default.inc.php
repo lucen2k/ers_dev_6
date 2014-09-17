@@ -13,8 +13,14 @@ $tbl = new Array_View_Table;
 #- Pager Class
 include(__DIR__.'/class.pager.php');
 
+#- CSV Class
+include(__DIR__.'/class.csv.php');
+
 #- Config
 include(__DIR__.'/config.inc.php');
+
+#- define
+define('CSV_PATH',	__DIR__.'/../csv/');
 
 #- view
 Class ERS_Dev
