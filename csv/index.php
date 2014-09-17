@@ -9,12 +9,13 @@ html_header($title);
 
 #- Controller =======================================================
 
-$csv_file_list = CSV::get_csv_list();
-//debug($csv_file_list);
+# CSVファイルリスト取得
+$set->csv_file = CSV::get_csv_list();
+//debug($set->csv_file);　exit;
 
-$csv_import = CSV::get_csv_import($csv_file_list['content'][1], 5, 11);
-//debug($csv_import);
-$set->csv_import = $csv_import;
+# 最初（1番目）ファイルの11行(offset)から5行(limit)取得
+$set->csv_import = CSV::get_csv_import($csv_file['content'][1], 5, 11);
+//debug($set->csv_import);　exit;
 
 
 

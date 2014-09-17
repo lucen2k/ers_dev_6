@@ -26,6 +26,7 @@ $released = "September 12, 2014";
 			<ul>
 				<li><a href="#table-class">Table Class</a></li>
 				<li><a href="#pager-class">Pager Class</a></li>
+				<li><a href="#csv-class">CSV Class</a></li>
 			</ul>
 		</div>
 		<div id="right">
@@ -49,6 +50,7 @@ echo '<pre>', highlight_string('
 
 ', true), '</pre>';
 			?>
+
 			<h2><a name="pager-class">Pager Class</a></h2>
 			<p>Controller</p>
 			<?php
@@ -66,7 +68,87 @@ $set->pager = $pager->show();
 
 ', true), '</pre>';
 			?>
-			
+
+			<h2><a name="csv-class">CSV Class</a></h2>
+			<p>Controller</p>
+			<?php
+echo '<pre>', highlight_string('<?php
+# CSVファイルリスト取得
+$set->csv_file = CSV::get_csv_list();
+
+debug::
+Array
+(
+    [content] => Array
+        (
+            [1] => sample.csv
+        )
+    [count] => 1
+)
+', true), '</pre>';
+			?>
+
+			<?php
+echo '<pre>', highlight_string('<?php
+# CSV内容取得：全部取得の場合
+$set->csv_import = CSV::get_csv_import($csv_file[\'content\'][1]);
+
+debug::
+Array
+(
+    [content] => Array
+        (
+            [11] => Array
+                (
+                    [0] => 10
+                    [1] => 斉藤
+                    [2] => 090-1111-2222
+                    [3] => 東京都千代田区
+                    [4] => 2014/5/23
+                )
+            [12] => Array　[...]
+        )
+    [count] => 16
+)
+
+# CSV内容取得：最初から5行取得の場合
+$set->csv_import = CSV::get_csv_import($csv_file[\'content\'][1], 5);
+
+# CSV内容取得：10行目から5行取得の場合
+$set->csv_import = CSV::get_csv_import($csv_file[\'content\'][1], 5, 10);
+
+', true), '</pre>';
+			?>
+
+			<p>View</p>
+			<?php
+echo '<pre>', highlight_string('<?php
+# CSVファイルのリスト表示
+<h3>CSV File list</h3>
+
+ファイル数：<?php echo $set->csv_file[\'count\']; ?>
+<table class="lucen">
+<?php foreach ($set->csv_file[\'content\'] as $no => $filename): ?>
+	<tr>
+		<td><?php echo $no; ?></td>
+		<td><?php echo $filename; ?></td>
+	</tr>
+<?php endforeach; ?>
+</table>
+', true), '</pre>';
+			?>
+
+			<?php
+echo '<pre>', highlight_string('<?php
+# CSVファイルの内容表示
+<h3><?php echo $set->csv_file[\'content\'][1]; ?></h3>
+
+行数：<?php echo $set->csv_import[\'count\']; ?>
+<?php echo $tbl->view($set->csv_import[\'content\']); ?>
+
+', true), '</pre>';
+			?>
+
 		</div>	
 		<div class="clear"></div>	
 	</body>
