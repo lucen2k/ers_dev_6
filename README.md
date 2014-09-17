@@ -22,9 +22,9 @@ define('DATABASE',	'test');
 debug::
 ERS_Dev Object
 (
-    [version] => ers.dev.v.0.5
-    [date] => 2014.09.12
-    [author] => Lucen(5),Wataru(0)
+    [version] => ers.dev.v.0.6
+    [date] => 2014.09.17
+    [author] => Lucen(6),Wataru(0)
     [db_class] => DB Class Discription
     [other_class] => Other Class Discription
     [search] => Array
@@ -46,6 +46,9 @@ ERS_Dev Object
 
 /**
  *　Version discription list
+ *
+ * ers.dev.v.0.6 - 2014.9.17
+ * @author Lucen(6): CSV Class追加
  *
  * ers.dev.v.0.5 - 2014.9.14
  * @author Lucen(5): Pager Class追加

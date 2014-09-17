@@ -91,7 +91,7 @@ Array
 			<?php
 echo '<pre>', highlight_string('<?php
 # CSV内容取得：全部取得の場合
-$set->csv_import = CSV::get_csv_import($csv_file[\'content\'][1]);
+$set->csv_import = CSV::get_csv_import($set->csv_file[\'content\'][1]);
 
 debug::
 Array
@@ -112,10 +112,10 @@ Array
 )
 
 # CSV内容取得：最初から5行取得の場合
-$set->csv_import = CSV::get_csv_import($csv_file[\'content\'][1], 5);
+$set->csv_import = CSV::get_csv_import($set->csv_file[\'content\'][1], 5);
 
 # CSV内容取得：10行目から5行取得の場合
-$set->csv_import = CSV::get_csv_import($csv_file[\'content\'][1], 5, 10);
+$set->csv_import = CSV::get_csv_import($set->csv_file[\'content\'][1], 5, 10);
 
 ', true), '</pre>';
 			?>
