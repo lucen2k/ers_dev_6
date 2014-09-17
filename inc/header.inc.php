@@ -26,3 +26,12 @@ function html_footer()
 ';
 	return true;
 }
+
+#- csv header
+function csv_header($filename)
+{
+	header('X-Content-Type-Options: nosniff');
+	header('Content-Disposition: attachement; filename='.$filename);
+	header('Content-Type: application/octet-stream; name='.$filename);
+}
+
