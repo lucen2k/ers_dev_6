@@ -23,7 +23,7 @@ debug::
 ERS_Dev Object
 (
     [version] => ers.dev.v.0.6
-    [date] => 2014.09.17
+    [date] => 2014.09.18
     [author] => Lucen(6),Wataru(0)
     [db_class] => DB Class Discription
     [other_class] => Other Class Discription
@@ -47,7 +47,7 @@ ERS_Dev Object
 
 #　Version
 
- * ers.dev.v.0.6 - 2014.9.17
+ * ers.dev.v.0.6 - 2014.9.18
  * @author Lucen(6): CSV Class追加
 
  * ers.dev.v.0.5 - 2014.9.14

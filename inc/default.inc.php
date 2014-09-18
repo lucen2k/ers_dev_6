@@ -26,7 +26,7 @@ define('CSV_PATH',	__DIR__.'/../csv/');
 Class ERS_Dev
 {
    public $version 	= "ers.dev.v.0.6";
-   public $date 	= "2014.09.17";
+   public $date 	= "2014.09.18";
    public $author 	= "Lucen(6),Wataru(0)";
    public $db_class = "<a href='/inc/index.php' target='_blank'>DB Class Discription</a>";
    public $other_class = "<a href='/inc/index_class_doc.php' target='_blank'>Other Class Discription</a>";
