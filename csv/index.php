@@ -2,6 +2,18 @@
 #- default include
 include(__DIR__.'/../inc/default.inc.php');
 
+#- CSV Download
+if (isset($_GET['download_csv'])) {
+	# DATA取得
+	$data = $db->select('list');
+	//debug($data); exit;
+
+	# 出力
+	$title = array('ID','名前','作成日時','更新時日');
+	$filename = 'member_list';
+	CSV::csv_download($data);
+}
+
 #- Html header
 $title = 'CSV import';
 html_header($title);

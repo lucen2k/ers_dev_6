@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * CSV処理用Class
+ *
+ * @author Lucen harukawa
+ */
 class CSV
 {
 	#- CSVファイルリスト取得
@@ -62,9 +67,43 @@ class CSV
 	}
 
 	#- CSVダウンロード
-	static function csv_download()
+	static function csv_download($data, $title=array(), $filename=null)
 	{
-		//
+		if (empty($data) || !is_array($data)) {
+			return false;
+		}
+		if (empty($filename)) {
+			$filename = 'export_'.date('Ymd');
+		}
+		$filename .= ".csv";
+
+		# Export
+		header('X-Content-Type-Options: nosniff');
+		header('Content-Disposition: attachement; filename='.$filename);
+		header('Content-Type: application/octet-stream; name='.$filename);
+		foreach ($data as $entry) {
+
+			// csv title
+			if ($title !== true) {
+				if (empty($title)) {
+					foreach ($entry as $title_name => $tmp) {
+						$title[] = mb_convert_encoding($title_name, "SJIS", "UTF-8");
+					}
+					echo join(",",$title);
+				} else {
+					$title = join(",",$title);
+					echo mb_convert_encoding($title, "SJIS", "UTF-8");
+				}
+				$title = true;
+				echo "\n";
+			}
+
+			// csv contents
+			$contents = join(",",$entry);
+			echo mb_convert_encoding($contents, "SJIS", "UTF-8");
+			echo "\n";
+		}
+		exit;
 	}
 
 }

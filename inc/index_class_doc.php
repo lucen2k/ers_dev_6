@@ -78,7 +78,7 @@ echo '<pre>', highlight_string('<?php
 # CSVファイルリスト取得
 $set->csv_file = CSV::get_csv_list();
 
-debug::
+Debug::
 Array
 (
     [content] => Array
@@ -95,7 +95,7 @@ echo '<pre>', highlight_string('<?php
 # CSV内容取得：全部取得の場合
 $set->csv_import = CSV::get_csv_import($set->csv_file[\'content\'][1]);
 
-debug::
+Debug::
 Array
 (
     [content] => Array
@@ -118,6 +118,35 @@ $set->csv_import = CSV::get_csv_import($set->csv_file[\'content\'][1], 5);
 
 # CSV内容取得：10行目から5行取得の場合
 $set->csv_import = CSV::get_csv_import($set->csv_file[\'content\'][1], 5, 10);
+
+', true), '</pre>';
+			?>
+
+			<?php
+echo '<pre>', highlight_string('<?php
+# CSV出力
+if (isset($_GET[\'download_csv\'])) {
+	# DATA取得
+	$data = $db->select(\'list\');
+	//debug($data); exit;
+
+	# 出力
+	$title = array(\'ID\',\'名前\',\'作成日時\',\'更新時日\');
+	$filename = \'member_list\';
+	CSV::csv_download($data, $title, $filename);
+}
+
+# filenameを指定しない場合：「export_日付.csv」
+CSV::csv_download($data, $title);
+
+# CSVタイトルを指定しない場合：配列のキー名がタイトルになる
+CSV::csv_download($data);
+
+Example::
+id,name,created,modified
+1,aaa,0000-00-00 00:00:00,0000-00-00 00:00:00
+2,bbb,0000-00-00 00:00:00,0000-00-00 00:00:00
+3,ccc,0000-00-00 00:00:00,0000-00-00 00:00:00
 
 ', true), '</pre>';
 			?>
@@ -147,6 +176,15 @@ echo '<pre>', highlight_string('<?php
 
 行数：<?php echo $set->csv_import[\'count\']; ?>
 <?php echo $tbl->view($set->csv_import[\'content\']); ?>
+
+', true), '</pre>';
+			?>
+
+			<?php
+echo '<pre>', highlight_string('<?php
+# CSV出力リンク
+<h3>CSV Download</h3>
+<a href="?download_csv=1">Table:list Download</a><br>
 
 ', true), '</pre>';
 			?>

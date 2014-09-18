@@ -17,3 +17,11 @@
 
 行数：<?php echo $set->csv_import['count']; ?>
 <?php echo $tbl->view($set->csv_import['content']); ?>
+
+<!-- CSVダウンロード -->
+<h3>CSV Download</h3>
+<a href="?download_csv=1">Table:list Download</a><br>
+
+
+<br><!-- DEBUG --><hr>
+<?php debug($set); ?>
